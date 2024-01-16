@@ -1,0 +1,13 @@
+build:
+  gpu: true
+  cuda: "11.3"
+  python_version: "3.10"
+  python_packages:
+    - "onnxruntime-gpu==1.12.1"
+    - "gdown==4.5.4"
+
+  run:
+   - pip install rembg[gpu]
+   - mkdir -p /root/.u2net/ && cd /root/.u2net/ && wget https://github.com/danielgatis/rembg/releases/download/v0.0.0/isnet-general-use.onnx
+
+predict: "predictor.py:Predictor"
